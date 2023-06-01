@@ -1,6 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
-const users = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState: [],
   reducers: {
@@ -9,5 +9,6 @@ const users = createSlice({
     deleteUsers(state, action) {},
   },
 });
+console.log(userSlice.actions);
 
-export { users };
+export { userSlice };
