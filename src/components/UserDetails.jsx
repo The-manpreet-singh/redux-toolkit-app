@@ -9,7 +9,7 @@ import DisplayUsers from "./DisplayUsers";
 export const UserDetails = () => {
   const dispatch = useDispatch();
   const addNewUser = (userName) => {
-    console.log(userName);
+    //console.log(userName);
     dispatch(addUsers(userName));
   };
   return (
