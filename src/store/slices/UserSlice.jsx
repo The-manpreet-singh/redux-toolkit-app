@@ -6,13 +6,16 @@ const userSlice = createSlice({
   reducers: {
     addUsers(state, action) {
       state.push(action.payload);
-      console.log(action.payload);
+      //console.log(action.payload);
     },
-    removeUser(state, action) {},
+    removeUser(state, action) {
+      //console.log("delete:", action.payload);
+      state.splice(action.payload, 1);
+    },
     deleteUsers(state, action) {},
   },
 });
 
 export { userSlice };
 //console.log(userSlice.actions); //this is action creators so we need to export it
-export const { addUsers } = userSlice.actions;
+export const { addUsers, removeUser } = userSlice.actions;

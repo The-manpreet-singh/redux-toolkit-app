@@ -1,17 +1,32 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { MdDeleteForever } from "react-icons/md";
+import { removeUser } from "../store/slices/userSlice";
 
 const DisplayUsers = () => {
+  const dispatch = useDispatch();
+
   const data = useSelector((state) => {
     return state.users;
   });
 
-  console.log(data);
+  // console.log(data)
+
+  const deleteUser = (id) => {
+    dispatch(removeUser(id));
+  };
 
   return (
     <Wrapper>
       {data.map((user, id) => {
-        return <li key={id}>{user}</li>;
+        return (
+          <li key={id}>
+            {user}
+            <button className=" btn-delete" onClick={() => deleteUser(id)}>
+              <MdDeleteForever className="delete-icon" />
+            </button>
+          </li>
+        );
       })}
     </Wrapper>
   );
